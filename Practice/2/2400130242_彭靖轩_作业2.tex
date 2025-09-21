@@ -1,0 +1,32 @@
+% !Mode:: "TeX:UTF-8"
+% !TEX program  = xelatex
+% Document class declaration
+\documentclass{BlockChain}
+% Import style package
+\usepackage{BlockChain}
+% Initialize document metadata variables
+\sduCourse{区块链原理} % Course name and semester
+\sduStudentId{202400130242} % Student ID
+\sduName{彭靖轩} % Student name
+\sduStudentClass{智能24} % Student class
+\sduExperimentalTopics{Block} % Experiment topic
+\sduDate{\today} % Current date
+\sduTime{4小时}
+% Begin document content
+\begin{document}
+\begin{sduDocument}
+    \section{原理分析与步骤}
+    \subsection{原理分析}
+    本Python脚本通过解析标准输入数据，模拟Block结构，最终输出信息.
+    \subsection{步骤分析}
+    首先读取并解析标准输入数据，在给定genesis block的基础上，构造新的block（包括头和交易列表）.其中区块头包括idx、时间戳、前一个区块的哈希和默克尔树根（参考实验1）等数据.
+    \section{结论分析与体会}
+    通过本次实验，掌握了区块链中区块结构的基本组成和数据处理方法.
+    \sduAppendix
+    \lstinputlisting[
+        style = Python,
+        caption = {\bf 源代码},
+        label = {lst:Py},
+    ]{main.py}
+\end{sduDocument}
+\end{document}
