@@ -1,0 +1,50 @@
+% !Mode:: "TeX:UTF-8"
+% !TEX program  = xelatex
+% Document class declaration
+\documentclass{BlockChain}
+% Import style package
+\usepackage{BlockChain}
+% Initialize document metadata variables
+\sduCourse{区块链原理} % Course name and semester
+\sduStudentId{202400130242} % Student ID
+\sduName{彭靖轩} % Student name
+\sduStudentClass{智能24} % Student class
+\sduExperimentalTopics{Block} % Experiment topic
+\sduDate{\today} % Current date
+\sduTime{6小时}
+% Begin document content
+\begin{document}
+\begin{sduDocument}
+    \section{原理分析与步骤}
+    \subsection{原理分析}
+    本实验实现了基于工作量证明（Proof of Work, PoW）的区块链系统。核心原理：
+    \begin{itemize}
+        \item[1.] 每个区块包含区块头（索引、时间戳、前块哈希、Merkle根、nonce）和交易列表。
+        \item[2.] 通过计算密集型任务寻找nonce值p，使得$hash(p \times p') $的前2位为"00"，其中$p'$是前一区块的proof。
+        \item[3.] 设置交易池容量为4，当交易数达到阈值时自动触发挖矿，将交易打包成区块。
+        \item[4.] 使用交易列表的哈希值作为Merkle根，确保交易数据完整性。
+    \end{itemize}
+    \subsection{步骤分析}
+    \begin{itemize}
+        \item[1.] 初始化区块链，创建创世区块（索引0，无交易）。
+        \item[2.] 添加交易到交易池，记录发送方、接收方和金额。
+        \item[3.] 交易池满时，计算Merkle根，执行PoW算法寻找有效nonce。
+        \item[4.] 创建新区块，包含区块头和交易列表，添加到区块链。
+        \item[5.] 重复2-4，成功创建3个有效区块。
+        \item[6.] 打印完整区块链，展示所有区块信息和交易记录。
+    \end{itemize}
+    \section{结论分析与体会}
+    通过本次实验，成功实现了基于PoW的区块链系统，其优势在于：
+    \begin{itemize}
+        \item[1.] 理解了区块链的基本结构和工作原理
+        \item[2.] 掌握了PoW算法的实现细节
+        \item[3.] 体验了区块链数据的不可篡改性
+    \end{itemize}
+    \sduAppendix
+    \lstinputlisting[
+        style = Python,
+        caption = {\bf 源代码},
+        label = {lst:Py},
+    ]{main.py}
+\end{sduDocument}
+\end{document}
