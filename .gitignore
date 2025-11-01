@@ -8,3 +8,6 @@
 *.webp
 *.out
 *.aux
+*.tex
+*.cls
+*.sty
